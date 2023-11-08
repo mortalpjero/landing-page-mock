@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -8,20 +8,38 @@
   --background-end-rgb: 255, 255, 255;
 }
 
+@font-face {
+  font-family: 'HalvarBreit-Lt';
+  src: url(../public/fonts/HalvarBreit-Lt.woff2) format('woff2'),
+    url(../public/fonts/HalvarBreit-Lt.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'HalvarBreit-Bold';
+  src: url(../public/fonts/HalvarBreit-Bd.woff2) format('woff2'),
+    url(../public/fonts/HalvarBreit-Bd.woff) format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'HalvarBreit-Lt', sans-serif;
+  color: white;
+  font-size: 18px;
+}
+
+.burgerIcon svg path {
+  stroke: #293743;
 }
