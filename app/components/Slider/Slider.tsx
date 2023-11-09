@@ -2,9 +2,9 @@
 
 import React, { useState, useRef } from "react";
 import Image from "next/image";
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide,  } from 'swiper/react';
 import SwiperCore from 'swiper';
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 import classNames from "classnames";
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -14,7 +14,7 @@ import 'swiper/css/effect-coverflow';
 import './slider.css';
 import { NavigationLeftButton, NavigationRightButton } from "../NavigationBtn/NavigationBtn";
 
-SwiperCore.use([Navigation]);
+SwiperCore.use([Navigation, Autoplay]);
 
 const Slider = () => {
   const [slideChanged, setSlideChanged] = useState(false);
@@ -59,6 +59,10 @@ const Slider = () => {
         }}
         loop={true}
         speed={1500}
+        autoplay={{
+          delay: 5000,
+          disableOnInteraction: false,
+        }}
         className="h-screen relative"
       >
         <SwiperSlide className="w-full h-full w-[fit-content]">
