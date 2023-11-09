@@ -7,6 +7,13 @@ interface NavigationProps {
   isFirstLoad: boolean;
 }
 
+interface NavItem {
+  text: string;
+  href: string;
+  hoverTextColor: string;
+  hoverBgColor: string;
+}
+
 const Navigation: FC<NavigationProps> = ({ navVisibility, isFirstLoad }) => {
 
   const navClasses = classNames(
@@ -22,28 +29,34 @@ const Navigation: FC<NavigationProps> = ({ navVisibility, isFirstLoad }) => {
     'text-6xl',
     'border-box',
     navVisibility ? 'slide-in' : 'slide-out',
-    isFirstLoad ? 'initial-hidden' : null)
+    isFirstLoad ? 'initial-hidden' : null
+  )
+
+  const navItemClasses = classNames(
+    'p-10',
+    'flex-auto',
+    'bg-grayCustomColor',
+    'border',
+    'border-blueCustomColor',
+    'min-w-[300px]'
+  )
+
+  const navItems: NavItem[] = [
+    { text: 'Услуги', href: 'https://www.ultra-s.ru/services/', hoverTextColor: 'white', hoverBgColor: 'beigeCustomColor' },
+    { text: 'Проекты', href: 'https://www.ultra-s.ru/house-projects/', hoverTextColor: 'gray-800', hoverBgColor: 'white' },
+    { text: 'Построенное', href: 'https://www.ultra-s.ru/finished/', hoverTextColor: 'grayCustomColor', hoverBgColor: 'blueCustomColor' },
+    { text: 'Полезное', href: 'https://www.ultra-s.ru/stati/', hoverTextColor: 'grayCustomColor', hoverBgColor: 'greenCustomColor' },
+    { text: 'О нас', href: 'https://www.ultra-s.ru/about/', hoverTextColor: 'grayCustomColor', hoverBgColor: 'greenCustomColor' },
+    { text: 'Контакты', href: 'https://www.ultra-s.ru/contacts/', hoverTextColor: 'grayCustomColor', hoverBgColor: 'black' },
+  ];
 
   return (
     <menu className={navClasses}>
-      <li className="p-10 flex-auto bg-grayCustomColor border border-blueCustomColor min-w-[300px] hover:text-white hover:bg-beigeCustomColor">
-        <a className="block text-center" href="https://www.ultra-s.ru/services/">Услуги</a>
-      </li >
-      <li className="p-10 flex-auto bg-grayCustomColor border border-blueCustomColor min-w-[300px] hover:bg-white">
-        <a className="block text-center" href="https://www.ultra-s.ru/house-projects/">Проекты</a>
-      </li>
-      <li className="p-10 flex-auto bg-grayCustomColor border border-blueCustomColor min-w-[300px] hover:text-grayCustomColor hover:bg-blueCustomColor">
-        <a className="block text-center" href="https://www.ultra-s.ru/finished/">Построенное</a>
-      </li>
-      <li className="p-10 flex-auto bg-grayCustomColor border border-blueCustomColor min-w-[300px] hover:text-grayCustomColor hover:bg-greenCustomColor">
-        <a className="block text-center" href="https://www.ultra-s.ru/stati/">Полезное</a>
-      </li>
-      <li className="p-10 flex-auto bg-grayCustomColor border border-blueCustomColor min-w-[300px] hover:text-grayCustomColor hover:bg-greenCustomColor">
-        <a className="block text-center" href="https://www.ultra-s.ru/about/">О нас</a>
-      </li>
-      <li className="p-10 flex-auto bg-grayCustomColor border border-box border-blueCustomColor min-w-[300px] hover:text-grayCustomColor hover:bg-black">
-        <a className="block text-center" href="https://www.ultra-s.ru/contacts/">Контакты</a>
-      </li>
+      {navItems.map((item, index) => (
+        <li key={index} className={`${navItemClasses} hover:text-${item.hoverTextColor} hover:bg-${item.hoverBgColor}`}>
+          <a className="block text-center" href={item.href}>{item.text}</a>
+        </li>
+      ))}
     </menu>
   )
 };

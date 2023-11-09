@@ -40,6 +40,10 @@ body {
   font-size: 18px;
 }
 
+.links-container:hover a {
+  display: block;
+}
+
 .burgerIcon svg path {
   stroke: #293743;
 }

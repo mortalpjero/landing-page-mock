@@ -96,8 +96,9 @@ const Header = () => {
                 </a>
               </div>
             </div>
-            <div className='flex-grow flex items-center justify-end pr-24'>
-              <a href="tel:+73432195195" className='font-havlar-bold block'>+7 3432-195-195</a>
+            <div className='links-container flex-grow flex flex-col items-center justify-end pr-24 max-w-xs'>
+              <a href="tel:+73432195195" className='font-havlar-bold block w-full hover:text-gray-300'>+7 (343) 2-195-195</a>
+              <a href="tel:+73432195195" className='font-havlar-bold block w-full hover:text-gray-300 hidden'>+7 (343) 2-693-898</a>
             </div>
           </div>
           <button className={btnClasses}> Оставить заявку </button>

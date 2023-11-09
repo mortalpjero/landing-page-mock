@@ -1,4 +1,4 @@
-.container {
+.arrow-wrapper {
   position: relative;
   width: 25px;
   height: 25px;
@@ -37,18 +37,16 @@
   transition: opacity 0.3s 0.2s ease-in-out, width 0.3s 0.2s ease-in-out;
 }
 
-.container:hover .third-arrow-left,
-.container:hover .first-arrow-right {
+.arrow-wrapper:hover .third-arrow-left,
+.arrow-wrapper:hover .first-arrow-right {
   opacity: 1;
   transition: opacity 0.3s 0.2s ease-in-out, width 0.3s 0.2s ease-in-out;
-  /* disappears second */
 }
 
-.container:hover .second-arrow-left,
-.container:hover .second-arrow-right {
+.arrow-wrapper:hover .second-arrow-left,
+.arrow-wrapper:hover .second-arrow-right {
   opacity: 1;
   transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
-  /* disappears first */
 }
 
 

@@ -42,7 +42,7 @@ const Burger: FC<NavigationProps> = ({ setNavVisible, isNavVisible }) => {
     if (!burgerClicked) {
       burger.current.goToAndStop(0, true)
     }
-  }, [isNavVisible]);
+  }, [isNavVisible, burgerClicked]);
 
   const burgerClasses = classNames(
     'text-white',
