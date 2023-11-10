@@ -1,4 +1,4 @@
-export const observeIntersection = (elementId, callback) => {
+export const observeIntersection = (elementId: string, callback: (isIntersecting: boolean) => void): () => void => {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       callback(entry.isIntersecting);
